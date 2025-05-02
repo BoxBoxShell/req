@@ -1,1 +1,1 @@
-alert('XSS from GitHub');
+alert('XSS from GitHub')
